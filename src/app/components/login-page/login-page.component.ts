@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,14 +14,17 @@ export class LoginPageComponent {
     password: new FormControl('',[Validators.required])
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {  
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
     if(username && password) {
       this.authService.login(username, password).subscribe(
-        res => this.authService.setToken(res.token)
+        res => { 
+          this.authService.setToken(res.token)
+          this.router.navigate(['recipes'])
+        }
       )
     }
   }

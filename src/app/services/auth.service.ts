@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<any>(this.url + "token", {username, password}, { headers: { Authorization: 'Basic ć' + btoa(username + ':' + password)}});
+    return this.http.post<any>(this.url + "token", {username, password}, { headers: { Authorization: 'Basic ' + btoa(username + ':' + password)}});
   }
 
   register(user: RegisterUser) {

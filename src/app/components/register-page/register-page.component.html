@@ -1,17 +1,17 @@
 <mat-card class="card">
     <mat-card-content>
         <h1>Zarejestruj się</h1>
-        <form class="form">
+        <form class="form" [formGroup]="form">
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Nazwa uzytkownika</mat-label>
-              <input matInput placeholder="">
+              <input matInput placeholder="" formControlName="username">
             </mat-form-field>
           </p>
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Hasło</mat-label>
-              <input matInput placeholder="">
+              <input matInput placeholder="" formControlName="password">
             </mat-form-field>
           </p>
           <p>
@@ -20,8 +20,8 @@
               <input matInput placeholder="">
             </mat-form-field>
           </p>
-          <button mat-raised-button color="primary">Zarejestruj</button>
         </form>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Zarejestruj</button>
     </mat-card-content>
   </mat-card>
   
