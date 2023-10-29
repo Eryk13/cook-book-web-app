@@ -16,6 +16,11 @@ import { RecipePageComponent } from './components/recipe-page/recipe-page.compon
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { HttpClientModule} from '@angular/common/http';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,9 @@ import { HttpClientModule} from '@angular/common/http';
     LoginPageComponent,
     HomePageComponent,
     RecipePageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    RecipeListComponent,
+    RecipeDetailPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,9 @@ import { HttpClientModule} from '@angular/common/http';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
