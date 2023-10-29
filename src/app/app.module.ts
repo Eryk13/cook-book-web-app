@@ -11,12 +11,19 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
+import {MatButtonModule} from '@angular/material/button';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HomePageComponent,
+    RecipePageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
