@@ -15,7 +15,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
-
+import { HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
