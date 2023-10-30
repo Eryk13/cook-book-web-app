@@ -16,7 +16,7 @@ import { RecipePageComponent } from './components/recipe-page/recipe-page.compon
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { HttpClientModule} from '@angular/common/http';
-import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { UserRecipeListComponent } from './components/user-recipe-list/user-recipe-list.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
@@ -29,7 +29,7 @@ import { RecipeDetailPageComponent } from './components/recipe-detail-page/recip
     HomePageComponent,
     RecipePageComponent,
     RegisterPageComponent,
-    RecipeListComponent,
+    UserRecipeListComponent,
     RecipeDetailPageComponent
   ],
   imports: [
