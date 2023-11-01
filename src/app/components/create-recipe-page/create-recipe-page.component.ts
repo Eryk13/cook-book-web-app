@@ -30,13 +30,13 @@ export class CreateRecipePageComponent {
     if(title) {
       const recipe = <Recipe>{
         title: title,
-        instructions: this.instructions,
+        instructions: this.instructions.join('|'),
         ingredients: this.ingredients
       }
       this.recipeService.addRecipe(recipe).subscribe(
         {
           next: (res) => {
-            this.router.navigate(['/recipes/',res.id])
+            this.router.navigate(['/recipe/',res.id])
           }
         }
       )
