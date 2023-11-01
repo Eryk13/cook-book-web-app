@@ -8,3 +8,6 @@
   display: flex;
   gap: 1rem;
 }
+.logo:hover{
+  cursor: pointer;
+}
