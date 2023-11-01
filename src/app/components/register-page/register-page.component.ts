@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterUser } from 'src/app/models/register-user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,15 +12,21 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterPageComponent {
 
   form = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+    confirmPassword: new FormControl('', [Validators.required]),
   });
   errorMessage: string | undefined;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
+    const password = this.form.get('password')?.value;
+    const confirmPassword = this.form.get('confirmPassword')?.value;
+    if(password !== confirmPassword) {
+      this.errorMessage = "Hasła do siebie nie pasują";
+      return;
+    }
     const userDto = <RegisterUser>{
       username: this.form.get('username')?.value,
       password: this.form.get('password')?.value
