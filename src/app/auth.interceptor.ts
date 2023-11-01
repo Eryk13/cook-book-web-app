@@ -17,6 +17,10 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
+    const authHeaderExists = request.headers.get("Authorization");
+    if(authHeaderExists) {
+      return next.handle(request);
+    }
     const newHeaders = new HttpHeaders({
       Authorization: 'Bearer ' + this.authService.getToken(),
     });

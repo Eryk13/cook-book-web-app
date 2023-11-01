@@ -32,6 +32,7 @@ export class LoginPageComponent {
         error: (err) => {
           if (err.status === 401) {
             this.errorMessage = 'Nieprawidłowe hasło lub login';
+            console.error(err)
           }
         },
       });

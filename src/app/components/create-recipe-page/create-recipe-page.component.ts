@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Ingredient } from 'src/app/models/ingredient';
+import { Recipe } from 'src/app/models/recipe';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -17,7 +20,41 @@ export class CreateRecipePageComponent {
   thirdFormGroup = new FormGroup({
     ingredient: new FormControl(''),
   });
-  constructor(private recipeService: RecipeService) {}
+  instructions: string[] = [];
+  ingredients: Ingredient[] = [];
 
-  onSubmit() {}
+  constructor(private recipeService: RecipeService, private router: Router) {}
+
+  onSubmit() {
+    const title = this.firstFormGroup.get('title')?.value?.trim();
+    if(title) {
+      const recipe = <Recipe>{
+        title: title,
+        instructions: this.instructions,
+        ingredients: this.ingredients
+      }
+      this.recipeService.addRecipe(recipe).subscribe(
+        {
+          next: (res) => {
+            this.router.navigate(['/recipes/',res.id])
+          }
+        }
+      )
+    }
+    
+  }
+
+  addInstruction() {
+    const instruction = this.secondFormGroup.get('instruction')?.value?.trim();
+    if(instruction) {
+      this.instructions.push(instruction);
+    }
+  }
+
+  addIngredient() {
+    const ingredient = this.thirdFormGroup.get('ingredient')?.value?.trim();
+    if(ingredient) {
+      this.ingredients.push(<Ingredient>{name: ingredient});
+    }
+  }
 }
