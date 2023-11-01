@@ -5,5 +5,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page-layout{
     margin: 2rem 3rem;
-    padding: 1em 2em;
+    padding: 1em 2
+}
+
+.error-msg{
+    margin: 1rem;
+    text-align: center;
+    color: red;
 }

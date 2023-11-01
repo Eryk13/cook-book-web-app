@@ -13,6 +13,7 @@ export class LoginPageComponent {
     username: new FormControl('',[Validators.required]),
     password: new FormControl('',[Validators.required])
   });
+  errorMessage : string | undefined;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -20,12 +21,17 @@ export class LoginPageComponent {
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
     if(username && password) {
-      this.authService.login(username, password).subscribe(
-        res => { 
+      this.authService.login(username, password).subscribe({
+        next: (res) => {
           this.authService.setToken(res.token)
           this.router.navigate(['recipes'])
-        }
-      )
+        },
+        error: (err) => {
+          if(err.status === 401) {
+            this.errorMessage = "Nieprawidłowe hasło lub login"
+          }
+        },
+      })
     }
   }
 }

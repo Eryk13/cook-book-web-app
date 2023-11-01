@@ -1,6 +1,7 @@
 <mat-card class="card">
     <mat-card-content>
         <h1>Zaloguj się</h1>
+        <p class="error-msg" *ngIf="errorMessage">{{errorMessage}}</p>
         <form class="form" [formGroup]="form">
           <p>
             <mat-form-field appearance="outline">

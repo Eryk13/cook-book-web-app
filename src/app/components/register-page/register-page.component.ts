@@ -16,6 +16,7 @@ export class RegisterPageComponent {
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
   });
+  errorMessage: string | undefined;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,11 +25,15 @@ export class RegisterPageComponent {
       username: this.form.get('username')?.value,
       password: this.form.get('password')?.value
     }; 
-    this.authService.register(userDto).subscribe(
-      res => { 
-        console.log(res)
+    this.authService.register(userDto).subscribe({
+      next: () => { 
         this.router.navigate(['login'])
+      },
+      error: (err) => {
+        if(err.status === 400) {
+          this.errorMessage = "Uzytkownik o podanej nazwie juz istnieje";
+        }
       }
-    )
+    })
   }
 }
