@@ -1,3 +1,4 @@
+
 <mat-list role="list">
     <ng-container *ngFor="let recipe of $recipes | async">
         <mat-list-item role="listitem" class="list-item" [routerLink]="['/recipe/',recipe.id]"><div class="list-item-content">{{recipe.title}} <button mat-raised-button color="accent">Otwórz</button></div></mat-list-item>

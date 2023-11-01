@@ -15,11 +15,12 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { UserRecipeListComponent } from './components/user-recipe-list/user-recipe-list.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,13 @@ import { RecipeDetailPageComponent } from './components/recipe-detail-page/recip
     MatListModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [
+    {
+     provide: HTTP_INTERCEPTORS,
+     useClass: AuthInterceptor,
+     multi: true
+    }
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
