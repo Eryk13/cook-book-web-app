@@ -1,1 +1,11 @@
-<p>recipe-detail-page works!</p>
+<div *ngIf="recipe" class="container">
+    <h1 class="title">{{recipe.title}}</h1>
+    <h3>Instrukcje</h3>
+    <ol>
+        <li *ngFor="let instruction of recipe.instructions.split('|')">{{instruction}}</li>
+    </ol>
+    <h3>Składniki</h3>
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}}</li>
+    </ul>
+</div>
