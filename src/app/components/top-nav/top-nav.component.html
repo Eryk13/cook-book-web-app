@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
   <span>Twoje-przepisy.pl</span>
   <div class="nav">
+    <div>
+      <button mat-button [routerLink]="['recipes']">moje przepisy</button>
+    </div>
     <div class="nav-buttons">
       <button mat-raised-button color="warn" [routerLink]="['register']">
         Zarejestruj
