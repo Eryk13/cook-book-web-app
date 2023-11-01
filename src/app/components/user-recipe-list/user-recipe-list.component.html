@@ -1,9 +1,12 @@
 
-<mat-list role="list">
+<mat-list role="list" *ngIf="($recipes | async)?.length !== 0; else emptyList">
     <ng-container *ngFor="let recipe of $recipes | async">
         <mat-list-item role="listitem" class="list-item" [routerLink]="['/recipe/',recipe.id]"><div class="list-item-content">{{recipe.title}} <button mat-raised-button color="accent">Otwórz</button></div></mat-list-item>
         <mat-divider></mat-divider>
     </ng-container>
+</mat-list>
 
-  </mat-list>
+<ng-template #emptyList>
+        <p class="text-warning">Brak przepisów</p>
+</ng-template>
   
