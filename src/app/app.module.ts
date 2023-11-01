@@ -6,21 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserRecipeListComponent } from './components/user-recipe-list/user-recipe-list.component';
-import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { CreateRecipePageComponent } from './components/create-recipe-page/create-recipe-page.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { AuthInterceptor } from './auth.interceptor';
     RecipePageComponent,
     RegisterPageComponent,
     UserRecipeListComponent,
-    RecipeDetailPageComponent
+    RecipeDetailPageComponent,
+    CreateRecipePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,15 +47,16 @@ import { AuthInterceptor } from './auth.interceptor';
     MatButtonModule,
     HttpClientModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatStepperModule,
   ],
   providers: [
     {
-     provide: HTTP_INTERCEPTORS,
-     useClass: AuthInterceptor,
-     multi: true
-    }
-   ],
-  bootstrap: [AppComponent]
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

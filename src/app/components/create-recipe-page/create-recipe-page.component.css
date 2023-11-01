@@ -1,0 +1,22 @@
+.card {
+  margin: 2rem 5rem;
+  padding: 2em;
+}
+.form {
+  width: 100%;
+}
+mat-form-field {
+  width: 100%;
+}
+.inline-group {
+  display: flex;
+  gap: 1rem;
+  margin: 4rem 0 0 0;
+}
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}

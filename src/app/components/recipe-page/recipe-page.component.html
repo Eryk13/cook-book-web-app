@@ -1,5 +1,12 @@
 <div class="page-layout">
-    <button mat-raised-button color="primary" class="btn-add-recipe">Dodaj przepis</button>
-    <mat-divider></mat-divider>
-    <app-user-recipe-list></app-user-recipe-list>
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn-add-recipe"
+    [routerLink]="['/create-recipe']"
+  >
+    Dodaj przepis
+  </button>
+  <mat-divider></mat-divider>
+  <app-user-recipe-list></app-user-recipe-list>
 </div>

@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipeService {
+  private readonly url = 'http://localhost:8080/recipes';
 
-  private readonly url = "http://localhost:8080/recipes";
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getRecipes() {
     return this.http.get<Recipe[]>(this.url);

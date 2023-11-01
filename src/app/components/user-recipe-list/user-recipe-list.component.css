@@ -1,5 +1,5 @@
-.list-item-content{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.list-item-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

@@ -6,11 +6,10 @@ import { RecipeService } from 'src/app/services/recipe.service';
 @Component({
   selector: 'app-user-recipe-list',
   templateUrl: './user-recipe-list.component.html',
-  styleUrls: ['./user-recipe-list.component.css']
+  styleUrls: ['./user-recipe-list.component.css'],
 })
 export class UserRecipeListComponent {
-  
-  $recipes : Observable<Recipe[]> | undefined;
+  $recipes: Observable<Recipe[]> | undefined;
 
   constructor(private recipeService: RecipeService) {}
 

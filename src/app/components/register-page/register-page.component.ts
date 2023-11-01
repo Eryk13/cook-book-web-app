@@ -7,10 +7,9 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.css']
+  styleUrls: ['./register-page.component.css'],
 })
 export class RegisterPageComponent {
-
   form = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -18,28 +17,31 @@ export class RegisterPageComponent {
   });
   errorMessage: string | undefined;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   onSubmit() {
     const password = this.form.get('password')?.value;
     const confirmPassword = this.form.get('confirmPassword')?.value;
-    if(password !== confirmPassword) {
-      this.errorMessage = "Hasła do siebie nie pasują";
+    if (password !== confirmPassword) {
+      this.errorMessage = 'Hasła do siebie nie pasują';
       return;
     }
     const userDto = <RegisterUser>{
       username: this.form.get('username')?.value,
-      password: this.form.get('password')?.value
-    }; 
+      password: this.form.get('password')?.value,
+    };
     this.authService.register(userDto).subscribe({
-      next: () => { 
-        this.router.navigate(['login'])
+      next: () => {
+        this.router.navigate(['login']);
       },
       error: (err) => {
-        if(err.status === 400) {
-          this.errorMessage = "Uzytkownik o podanej nazwie juz istnieje";
+        if (err.status === 400) {
+          this.errorMessage = 'Uzytkownik o podanej nazwie juz istnieje';
         }
-      }
-    })
+      },
+    });
   }
 }

@@ -1,22 +1,23 @@
 <mat-card class="card">
-    <mat-card-content>
-        <h1>Zaloguj się</h1>
-        <p class="error-msg" *ngIf="errorMessage">{{errorMessage}}</p>
-        <form class="form" [formGroup]="form">
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>Nazwa uzytkownika</mat-label>
-              <input matInput placeholder="" formControlName="username">
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>Hasło</mat-label>
-              <input matInput placeholder="" formControlName="password">
-            </mat-form-field>
-          </p>
-        </form>
-        <button (click)="onSubmit()" mat-raised-button color="primary">Zaloguj</button>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-content>
+    <h1>Zaloguj się</h1>
+    <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <form class="form" [formGroup]="form">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Nazwa uzytkownika</mat-label>
+          <input matInput placeholder="" formControlName="username" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Hasło</mat-label>
+          <input matInput placeholder="" formControlName="password" />
+        </mat-form-field>
+      </p>
+    </form>
+    <button (click)="onSubmit()" mat-raised-button color="primary">
+      Zaloguj
+    </button>
+  </mat-card-content>
+</mat-card>

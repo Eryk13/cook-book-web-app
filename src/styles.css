@@ -1,24 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.page-layout{
-    margin: 2rem 3rem;
-    padding: 1em 2
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.error-msg{
-    margin: 1rem;
-    text-align: center;
-    color: red;
+.page-layout {
+  margin: 2rem 3rem;
+  padding: 1em 2;
 }
-.text-warning{
-    color: rgba(0,0,0,0.2);
-    text-align: center;
+
+.error-msg {
+  margin: 1rem;
+  text-align: center;
+  color: red;
 }
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.text-warning {
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

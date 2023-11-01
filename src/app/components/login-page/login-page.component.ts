@@ -6,32 +6,35 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
   form = new FormGroup({
-    username: new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required])
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
-  errorMessage : string | undefined;
+  errorMessage: string | undefined;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
-  onSubmit() {  
+  onSubmit() {
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
-    if(username && password) {
+    if (username && password) {
       this.authService.login(username, password).subscribe({
         next: (res) => {
-          this.authService.setToken(res.token)
-          this.router.navigate(['recipes'])
+          this.authService.setToken(res.token);
+          this.router.navigate(['recipes']);
         },
         error: (err) => {
-          if(err.status === 401) {
-            this.errorMessage = "Nieprawidłowe hasło lub login"
+          if (err.status === 401) {
+            this.errorMessage = 'Nieprawidłowe hasło lub login';
           }
         },
-      })
+      });
     }
   }
 }
