@@ -1,1 +1,21 @@
-<p>home-page works!</p>
+<div class="hero">
+    <div class="hero-actions">
+        <h1 class="hero-text">Wszystkie twoje przepisy w jednym miejscu</h1>
+        <button mat-raised-button color="primary" class="hero-button" [routerLink]="['/login']">Zaloguj</button>
+    </div>
+    <img class="hero-img" src="assets/hero.svg"/>
+</div>
+<div class="card-list">
+    <mat-card class="card">
+        <mat-card-title>Bezpieczeństwo</mat-card-title>
+        <mat-card-content>Wszystkie twoje przepisy są bezpiecznie przechowywane i po zalogowaniu tylko ty mozesz je edytować i usuwać</mat-card-content>
+    </mat-card>
+    <mat-card class="card">
+        <mat-card-title>Dostępność</mat-card-title>
+        <mat-card-content>Zaloguj się z dowolnego urządzenia z dostępem do internetu aby przeglądać swoje przepisy gdziekolwiek jestesś.</mat-card-content>
+    </mat-card>     
+    <mat-card class="card">
+        <mat-card-title>Wyszukiwanie</mat-card-title>
+        <mat-card-content>Nie trać czasu na szukanie przepisu. Dzięki aplikacji mozesz w mgnieniu oka wyszukać swój przepis</mat-card-content>
+    </mat-card>           
+</div>

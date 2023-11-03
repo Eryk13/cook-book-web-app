@@ -1,0 +1,35 @@
+.hero{
+    display: flex;
+    margin: 2rem 0 0 0;
+    padding: 1em 2em;
+}
+
+.hero-img{
+    flex:2;
+    object-fit: contain;
+    width: 66%;
+}
+.hero-actions{
+    flex: 1;
+    margin: 2rem 0 0 0;
+}
+.hero-text{
+    
+}
+.hero-button{
+
+}
+.card-list{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+    padding: 1em 2em;
+}
+.card{
+    padding: 1em;
+    max-width: 33.3%;
+}
+mat-card-title{
+    text-align: center;
+}
