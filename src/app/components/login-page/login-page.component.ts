@@ -23,6 +23,7 @@ export class LoginPageComponent {
   onSubmit() {
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
+
     if (username && password) {
       this.authService.login(username, password).subscribe({
         next: (res) => {
@@ -32,7 +33,7 @@ export class LoginPageComponent {
         error: (err) => {
           if (err.status === 401) {
             this.errorMessage = 'Nieprawidłowe hasło lub login';
-            console.error(err)
+            console.error(err);
           }
         },
       });
