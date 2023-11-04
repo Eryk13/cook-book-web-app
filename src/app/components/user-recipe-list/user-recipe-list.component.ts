@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { Ingredient } from 'src/app/models/ingredient';
 import { Recipe } from 'src/app/models/recipe';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-user-recipe-list',
@@ -9,11 +12,32 @@ import { RecipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./user-recipe-list.component.css'],
 })
 export class UserRecipeListComponent {
-  $recipes: Observable<Recipe[]> | undefined;
+  recipes: Recipe[] = [];
+  displayedColumns: string[] = ['title', 'ingredients', 'actions'];
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(
+    private recipeService: RecipeService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
-    this.$recipes = this.recipeService.getRecipes();
+    this.recipeService.getRecipes().subscribe({
+      next: (res) => {
+        this.recipes = res;
+      },
+    });
+  }
+
+  getIngrediens(ingredients: Ingredient[]) {
+    return ingredients.map((i) => i.name).join(', ');
+  }
+
+  deleteRecipe(id: number) {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.recipeService.deleteRecipe(id).subscribe();
+      }
+    });
   }
 }

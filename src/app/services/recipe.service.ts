@@ -19,6 +19,10 @@ export class RecipeService {
   }
 
   getRecipeById(id: number) {
-    return this.http.get<Recipe>(this.url + "/" + id);
+    return this.http.get<Recipe>(this.url + '/' + id);
+  }
+
+  deleteRecipe(id: number) {
+    return this.http.delete<any>(this.url + '/' + id);
   }
 }

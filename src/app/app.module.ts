@@ -23,6 +23,10 @@ import { RecipeDetailPageComponent } from './components/recipe-detail-page/recip
 import { AuthInterceptor } from './auth.interceptor';
 import { CreateRecipePageComponent } from './components/create-recipe-page/create-recipe-page.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     UserRecipeListComponent,
     RecipeDetailPageComponent,
     CreateRecipePageComponent,
+    EditRecipeComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatListModule,
     MatDividerModule,
     MatStepperModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     {

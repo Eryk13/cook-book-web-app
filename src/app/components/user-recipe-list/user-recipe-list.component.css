@@ -1,5 +1,6 @@
-.list-item-content {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+.mat-column-actions > button {
+  margin-left: 1rem;
+}
+.mat-column-actions {
+  text-align: end;
 }
