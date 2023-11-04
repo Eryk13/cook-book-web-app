@@ -10,14 +10,16 @@ export class AuthService {
   private readonly url = 'http://localhost:8080/auth/';
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
   $isLoggedIn = this.isLoggedIn.asObservable();
-  username: string | undefined;
-
+  test = 'a';
   constructor(private http: HttpClient) {
     const token = this.getToken();
     if (token != null) {
       this.getUserByToken(token).subscribe({
         next: (res) => {
           this.isLoggedIn.next(true);
+        },
+        error: () => {
+          this.logout();
         },
       });
     }

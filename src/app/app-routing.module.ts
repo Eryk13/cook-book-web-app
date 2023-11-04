@@ -6,10 +6,11 @@ import { RecipePageComponent } from './components/recipe-page/recipe-page.compon
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
 import { CreateRecipePageComponent } from './components/create-recipe-page/create-recipe-page.component';
+import { userGuard } from './user.guard';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'recipes', component: RecipePageComponent },
+  { path: 'recipes', component: RecipePageComponent, canActivate: [userGuard] },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'recipe/:id', component: RecipeDetailPageComponent },
