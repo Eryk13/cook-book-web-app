@@ -23,38 +23,40 @@ export class CreateRecipePageComponent {
   instructions: string[] = [];
   ingredients: Ingredient[] = [];
 
-  constructor(private recipeService: RecipeService, private router: Router) {}
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+  ) {}
 
   onSubmit() {
     const title = this.firstFormGroup.get('title')?.value?.trim();
-    if(title) {
+    if (title) {
       const recipe = <Recipe>{
         title: title,
         instructions: this.instructions.join('|'),
-        ingredients: this.ingredients
-      }
-      this.recipeService.addRecipe(recipe).subscribe(
-        {
-          next: (res) => {
-            this.router.navigate(['/recipe/',res.id])
-          }
-        }
-      )
+        ingredients: this.ingredients,
+      };
+      this.recipeService.addRecipe(recipe).subscribe({
+        next: (res) => {
+          this.router.navigate(['/recipe/', res.id]);
+        },
+      });
     }
-    
   }
 
   addInstruction() {
     const instruction = this.secondFormGroup.get('instruction')?.value?.trim();
-    if(instruction) {
+    if (instruction) {
       this.instructions.push(instruction);
+      this.secondFormGroup.get('instruction')?.setValue('');
     }
   }
 
   addIngredient() {
     const ingredient = this.thirdFormGroup.get('ingredient')?.value?.trim();
-    if(ingredient) {
-      this.ingredients.push(<Ingredient>{name: ingredient});
+    if (ingredient) {
+      this.ingredients.push(<Ingredient>{ name: ingredient });
+      this.thirdFormGroup.get('ingredient')?.setValue('');
     }
   }
 }
