@@ -59,4 +59,11 @@ export class CreateRecipePageComponent {
       this.thirdFormGroup.get('ingredient')?.setValue('');
     }
   }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+  }
+  deleteInstruction(index: number) {
+    this.instructions.splice(index, 1);
+  }
 }

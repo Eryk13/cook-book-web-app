@@ -20,3 +20,19 @@ mat-form-field {
 .mat-mdc-form-field {
   margin-top: 16px;
 }
+.list-item-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.list-item-content > p {
+  max-width: 80%;
+  margin: 0;
+  font-size: 1rem;
+}
+.list-item-content > button {
+  max-width: 20%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

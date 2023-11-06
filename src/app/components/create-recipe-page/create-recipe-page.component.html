@@ -12,16 +12,25 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" [editable]="true">
-    <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let item of instructions; let i=index">{{i + 1 + ". " + item}}</mat-list-item>
-      </mat-list>
+    <ol>
+      <li *ngFor="let item of instructions; let i = index">
+        <div class="list-item-content">
+          <p>{{ item }}</p>
+          <button mat-raised-button color="warn" (click)="deleteInstruction(i)">
+            Usuń
+          </button>
+        </div>
+      </li>
+    </ol>
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Instrukcje</ng-template>
       <mat-form-field appearance="outline">
         <mat-label>Instrukcja</mat-label>
         <input matInput formControlName="instruction" placeholder="" />
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addInstruction()" >Dodaj instrukcje</button>
+      <button mat-raised-button color="primary" (click)="addInstruction()">
+        Dodaj instrukcje
+      </button>
       <div class="inline-group">
         <button mat-raised-button color="accent" matStepperPrevious>
           Cofnij
@@ -31,16 +40,25 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup" [editable]="true">
-    <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let item of ingredients; let i=index">{{i + 1 + ". " + item.name}}</mat-list-item>
-      </mat-list>
+    <ol>
+      <li *ngFor="let item of ingredients; let i = index">
+        <div class="list-item-content">
+          <p>{{ item.name }}</p>
+          <button mat-raised-button color="warn" (click)="deleteIngredient(i)">
+            Usuń
+          </button>
+        </div>
+      </li>
+    </ol>
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Składniki</ng-template>
       <mat-form-field appearance="outline">
         <mat-label>Składnik</mat-label>
         <input matInput formControlName="ingredient" placeholder="" />
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addIngredient()">Dodaj składnik</button>
+      <button mat-raised-button color="primary" (click)="addIngredient()">
+        Dodaj składnik
+      </button>
       <div class="inline-group">
         <button mat-raised-button color="accent" matStepperPrevious>
           Cofnij
