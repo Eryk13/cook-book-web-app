@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     CreateRecipePageComponent,
     EditRecipeComponent,
     DialogComponent,
+    RecipeFormComponent,
   ],
   imports: [
     BrowserModule,
