@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterUser } from '../models/register-user';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,17 @@ export class AuthService {
   private readonly url = 'http://localhost:8080/auth/';
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
   $isLoggedIn = this.isLoggedIn.asObservable();
-  test = 'a';
-  constructor(private http: HttpClient) {
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {
     const token = this.getToken();
     if (token != null) {
       this.getUserByToken(token).subscribe({
         next: (res) => {
           this.isLoggedIn.next(true);
+          this.router.navigateByUrl('/recipes');
         },
         error: () => {
           this.logout();
