@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
-import { RegisterPageComponent } from './components/register-page/register-page.component';
-import { RecipeDetailPageComponent } from './components/recipe-detail-page/recipe-detail-page.component';
-import { CreateRecipePageComponent } from './components/create-recipe-page/create-recipe-page.component';
-import { userGuard } from './user.guard';
-import { EditRecipeComponent } from './components/edit-recipe/edit-recipe.component';
+import { LoginPageComponent } from './modules/auth/components/login-page/login-page.component';
+import { HomePageComponent } from './modules/home/components/home-page/home-page.component';
+import { RecipePageComponent } from './modules/recipe/components/recipe-page/recipe-page.component';
+import { RegisterPageComponent } from './modules/auth/components/register-page/register-page.component';
+import { RecipeDetailPageComponent } from './modules/recipe/components/recipe-detail-page/recipe-detail-page.component';
+import { CreateRecipePageComponent } from './modules/recipe/components/create-recipe-page/create-recipe-page.component';
+import { userGuard } from './modules/auth/guards/user.guard';
+import { EditRecipeComponent } from './modules/recipe/components/edit-recipe/edit-recipe.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
