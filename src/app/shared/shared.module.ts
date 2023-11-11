@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogComponent } from '../modules/recipe/components/dialog/dialog.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [DialogComponent],
+  declarations: [],
   exports: [
-    DialogComponent,
     MaterialModule,
     RouterModule,
     ReactiveFormsModule,

@@ -7,6 +7,7 @@ import { RecipeFormComponent } from './components/recipe-form/recipe-form.compon
 import { RecipePageComponent } from './components/recipe-page/recipe-page.component';
 import { UserRecipeListComponent } from './components/user-recipe-list/user-recipe-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RecipeFormComponent,
     RecipePageComponent,
     UserRecipeListComponent,
+    DialogComponent,
   ],
   imports: [CommonModule, SharedModule],
 })

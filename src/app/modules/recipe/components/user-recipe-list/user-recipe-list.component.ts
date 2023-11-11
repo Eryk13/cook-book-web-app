@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Ingredient } from 'src/app/modules/recipe/models/ingredient';
 import { Recipe } from 'src/app/modules/recipe/models/recipe';
 import { RecipeService } from 'src/app/modules/recipe/services/recipe.service';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-user-recipe-list',

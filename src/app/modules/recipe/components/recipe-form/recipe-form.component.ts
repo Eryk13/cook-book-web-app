@@ -48,7 +48,7 @@ export class RecipeFormComponent implements OnChanges {
         instructions: this.instructions.join('|'),
         ingredients: this.ingredients,
       };
-      if (recipe) {
+      if (this.recipe?.id) {
         this.recipeService.updateRecipe(recipe).subscribe({
           next: (res) => {
             this.router.navigate(['/recipe/', this.recipe?.id]);
