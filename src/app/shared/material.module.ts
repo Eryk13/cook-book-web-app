@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
+    MatPaginatorModule,
   ],
 })
 export class MaterialModule {}

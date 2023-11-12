@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe';
+import { ApiResponse } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,10 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  getRecipes() {
-    return this.http.get<Recipe[]>(this.url);
+  getRecipes(page: number, size: number) {
+    return this.http.get<ApiResponse<Recipe>>(
+      this.url + '?page=' + page + '&itemsPerPage=' + size,
+    );
   }
 
   addRecipe(recipe: Recipe) {
