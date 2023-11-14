@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-form-field appearance="outline" class="input">
+    <mat-label>Wyszukaj</mat-label>
+    <input matInput placeholder="" [(ngModel)]="str" />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    class="btn-search"
+    (click)="onSearch()"
+  >
+    Wyszukaj
+  </button>
+</div>

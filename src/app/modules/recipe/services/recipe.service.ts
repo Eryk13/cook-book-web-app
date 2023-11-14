@@ -11,9 +11,15 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  getRecipes(page: number, size: number) {
+  getRecipes(page: number, size: number, search: string) {
     return this.http.get<ApiResponse<Recipe>>(
-      this.url + '?page=' + page + '&itemsPerPage=' + size,
+      this.url +
+        '?page=' +
+        page +
+        '&itemsPerPage=' +
+        size +
+        '&search=' +
+        search,
     );
   }
 

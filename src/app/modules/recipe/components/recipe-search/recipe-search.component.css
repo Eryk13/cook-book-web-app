@@ -1,0 +1,11 @@
+.input {
+  width: 80%;
+}
+.btn-search {
+  width: 20%;
+  padding: 2em;
+}
+.container {
+  display: flex;
+  justify-content: stretch;
+}

@@ -8,6 +8,8 @@ import { RecipePageComponent } from './components/recipe-page/recipe-page.compon
 import { UserRecipeListComponent } from './components/user-recipe-list/user-recipe-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { RecipeSearchComponent } from './components/recipe-search/recipe-search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     RecipePageComponent,
     UserRecipeListComponent,
     DialogComponent,
+    RecipeSearchComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, FormsModule],
 })
 export class RecipeModule {}

@@ -8,5 +8,6 @@
     Dodaj przepis
   </button>
   <mat-divider></mat-divider>
-  <app-user-recipe-list></app-user-recipe-list>
+  <app-recipe-search (search)="onSearch($event)"></app-recipe-search>
+  <app-user-recipe-list [search]="searchStr"></app-user-recipe-list>
 </div>

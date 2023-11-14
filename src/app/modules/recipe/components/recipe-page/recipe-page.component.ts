@@ -8,4 +8,11 @@ import { RecipeService } from 'src/app/modules/recipe/services/recipe.service';
   templateUrl: './recipe-page.component.html',
   styleUrls: ['./recipe-page.component.css'],
 })
-export class RecipePageComponent {}
+export class RecipePageComponent {
+  searchStr: string = '';
+
+  onSearch(str: string) {
+    this.searchStr = str;
+    console.log('parent');
+  }
+}
